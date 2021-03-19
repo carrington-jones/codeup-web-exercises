@@ -14,6 +14,7 @@
 
     function addStuff(x, y) {
         return x + y;
+        //comment
     }
 
     console.log(addStuff(17, 18));
