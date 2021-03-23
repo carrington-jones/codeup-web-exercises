@@ -25,10 +25,8 @@ function analyzeColor(color) {
         return "blue is the color of the sky";
     } else if(color === "red") {
         return "Strawberries are red";
-    } else if( color === "cyan") {
-        return "I don't know anything about cyan";
     } else {
-        return "A different color was picked."
+        return "I don't know anything about " + color;
     }
 }
 
@@ -60,21 +58,22 @@ console.log(analyzeColor(randomColor));
  * TODO:
  * Refactor your above function to use a switch-case statement
  */
+switch (colors) {
+        case "blue":
+        "   blue is the color of the sky;";
+            break;
+        case "red":
+            "Strawberries are red";
+            break;
+        case "cyan":
+            "I do not know anything about cyan";
+            break;
+        default:
+            "Another color was picked"
+            break;
+    }
 
-switch(randomColor) {
-    case "blue":
-        "blue is the color of the sky;";
-        break;
-    case "red":
-        "Strawberries are red";
-        break;
-    case "cyan":
-        "I do not know anything about cyan";
-        break;
-    default:
-        "Another color was picked"
-        break;
-}
+console.log(analyzeColor(randomColor));
 
 /**
  * TODO:
@@ -111,23 +110,25 @@ switch(randomColor) {
 
 function calculateTotal(luckyNumberWalmart, totalAmount) {
     if (luckyNumberWalmart === 0) {
-        return totalAmount;
+        return "We're sorry you do not qualify for a discount. Your total is " + totalAmount;
     } else if (luckyNumberWalmart === 1) {
-        return (totalAmount - (totalAmount * .10));
+        return "Congrats! Your lucky numbers is " + luckyNumberWalmart + " you qualify for a 10% discount. Your total is: $" + (totalAmount - (totalAmount * .10));
     } else if (luckyNumberWalmart === 2) {
-        return (totalAmount - (totalAmount * .25));
+        return "Congrats! Your lucky numbers is " + luckyNumberWalmart + " you qualify for a 25% discount. Your total is: $" + (totalAmount - (totalAmount * .25));
     } else if (luckyNumberWalmart === 3) {
-        return (totalAmount - (totalAmount * .35));
+        return "Congrats! Your lucky numbers is " + luckyNumberWalmart + " you qualify for a 35% discount. Your total is: $" + (totalAmount - (totalAmount * .35));
     } else if (luckyNumberWalmart === 4) {
-        return (totalAmount - (totalAmount * .50));
+        return "Congrats! Your lucky numbers is " + luckyNumberWalmart + " you qualify for a 500% discount. Your total is: $" + (totalAmount - (totalAmount * .50));
     } else if (luckyNumberWalmart === 5) {
-        return (totalAmount - (totalAmount * 1));
+        return "Congrats! Your lucky numbers is " + luckyNumberWalmart + " you qualify for a 100% discount. Your total is: $" + (totalAmount - (totalAmount * 1));
+    } else {
+        return "We're sorry, your luck number does not qualify for a discount. Your total amount is: " + totalAmount;
     }
 }
 
-console.log(calculateTotal(2,100));
-console.log(calculateTotal(3,1000));
-console.log(calculateTotal(5,50));
+// console.log(calculateTotal(2,100));
+// console.log(calculateTotal(3,1000));
+// console.log(calculateTotal(5,50));
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 6.
@@ -137,11 +138,11 @@ console.log(calculateTotal(5,50));
  */
 // Generate a random number between 0 and 6
 // var luckyNumber = Math.floor(Math.random() * 6);
-
+//
 // var userBill = parseFloat(prompt("What was your total bill?"));
 // alert("Your lucky number is: " + luckyNumber);
 // alert("Your price before the discount is: $" + userBill);
-// alert("Your price after discount is: $" + (calculateTotal(luckyNumber,userBill)));
+// alert((calculateTotal(luckyNumber,userBill)));
 
 
 /**
@@ -162,31 +163,57 @@ console.log(calculateTotal(5,50));
  */
 var wouldLikeNumber = confirm("Would you like to pick a number?");
 
-if (wouldLikeNumber === true) {
-    var userNumber = parseFloat(prompt("What is your number?"));
-} else {
-    var userNumber = parseFloat(prompt("Please pick a number!"));
-}
-if (!(isNaN(userNumber))) {
-
-    if (userNumber % 2 === 0) {
-        alert("This number is even!");
-    } else {
-        alert("This number is odd!");
-    }
-    alert("Your number plus 100 is: " + (userNumber + 100) + "!");
-
-    if ((Math.sign(userNumber)) === 1) {
-        alert("This number is positive!");
-    } else if ((Math.sign(userNumber)) === 0) {
-        alert("This number is not positive or negative it is 0!");
-    } else {
-        alert("This number is negative!");
-    }
-} else {
-    alert("This is not a number");
-}
+// if (wouldLikeNumber === true) {
+//     var userNumber = parseFloat(prompt("What is your number?"));
+// } else {
+//     var userNumber = parseFloat(prompt("Please pick a number!"));
+// }
+// if (!(isNaN(userNumber))) {
+//
+//     if (userNumber % 2 === 0) {
+//         alert("This number is even!");
+//     } else {
+//         alert("This number is odd!");
+//     }
+//     alert("Your number plus 100 is: " + (userNumber + 100) + "!");
+//
+//     if ((Math.sign(userNumber)) === 1) {
+//         alert("This number is positive!");
+//     } else if ((Math.sign(userNumber)) === 0) {
+//         alert("This number is not positive or negative it is 0!");
+//     } else {
+//         alert("This number is negative!");
+//     }
+// } else {
+//     alert("This is not a number");
+// }
 
 //refractor to functions
 //
 //
+
+var numberEntry;
+
+function isOddEven (numberEntry) {
+    return (numberEntry % 2 === 0) ? "This number is even." : "This number is odd.";
+}
+
+function isNegativeorPositive(numberEntry) {
+    return (numberEntry > 0) ? "This number is positve." : "This number is negative.";
+}
+function plus100 (numberEntry) {
+    return "Your number is " + (parseFloat(numberEntry) + 100) + " if we added 100."
+}
+
+if(wouldLikeNumber) {
+    numberEntry = prompt("Please enter a number.")
+    if(isNaN(numberEntry)) {
+        alert("Sorry, that is not a number");
+    } else {
+        alert(isOddEven(numberEntry))
+        alert(isNegativeorPositive(numberEntry))
+        alert(plus100(numberEntry))
+    }
+} else {
+    alert("Fine! Bye!")
+}
