@@ -43,8 +43,17 @@
 //     }
 // }
 
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FOR LOOPS<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// var count = 100;
+// while (count >= 0){
+//     console.log(count);
+//     count = count -1;
+}
 
-
-
-
+// for (count = 0; count <= 100; count = count+1){
+//     console.log(count);
+// }
+for (i=0; i<=100; i++) {
+    console.log(i);
+}
 
