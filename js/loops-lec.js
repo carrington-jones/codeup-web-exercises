@@ -27,21 +27,22 @@
 // Tell the user how to end the program (sentinel value)
 // Loop back around and do it all over until the user tells to stop
 
-var priceOfItem = parseFloat(prompt("Enter the price of your first item"));
-alert("The price of your item was " + priceOfItem); //<<<Check to make sure we are off to right start. Users also like the feedback
-var totalCost = priceOfItem;
-var userInput = "";
+// var priceOfItem = parseFloat(prompt("Enter the price of your first item"));
+// alert("The price of your item was " + priceOfItem); //<<<Check to make sure we are off to right start. Users also like the feedback
+// var totalCost = priceOfItem;
+// var userInput = "";
 // create a sentinel value
-while(userInput !== "STOP") {
-    userInput = (prompt("Enter the price of your next item  \r\n\ Enter STOP when you are done"));
-    if (userInput === "STOP") {
-        alert("Ok your final total is " + totalCost);
-    } else {
-        priceofItem = parseFloat(userInput);
-        totalCost = totalCost + priceOfItem;
-        alert("Your total is now " + totalCost.toFixed(2));
-    }
-}
+// while(userInput !== "STOP") {
+//     userInput = (prompt("Enter the price of your next item  \r\n\ Enter STOP when you are done"));
+//     if (userInput === "STOP") {
+//         alert("Ok your final total is " + totalCost);
+//     } else {
+//         priceofItem = parseFloat(userInput);
+//         totalCost = totalCost + priceOfItem;
+//         alert("Your total is now " + totalCost.toFixed(2));
+//     }
+// }
+
 
 
 
