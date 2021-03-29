@@ -1,3 +1,4 @@
+"use strict";
 // function showMultiplicationTables(numberInput) {
 //     for(var i = 1; i <= 10; i++) {
 //     var totalAmount = (numberInput * i);
@@ -5,37 +6,49 @@
 //     }
 // } console.log(showMultiplicationTables(7));
 
-// var randomNumber = Math.floor((Math.random() * 181) + 20); <<<<<NEED TO WORK ON THIS ONE
-// for (i = randomNumber; i <= 200; i++){
-//     if (i % 2 === 0){
-//         console.log(i + " is even!");
+//
+// for (var i = 1; i <= 10; i++) {
+// var randomNumber = Math.floor((Math.random() * 181) + 20);
+//     if (randomNumber % 2 === 0){
+//         console.log(randomNumber + " is even!");
 //     } else {
-//         console.log(i + " is odd!");
+//         console.log(randomNumber + " is odd!");
 //     }
 // }
 
-// for (i = 1; i <= 999999999; i++) {
-//     if(i === 1){
-//         console.log(i);
-//     } else if (i === 22){
-//         console.log(i);
-//     } else if (i === 333) {
-//         console.log(i);
-//     }  else if (i === 4444) {
-//         console.log(i);
-//     } else if (i === 55555) {
-//         console.log(i);
-//     } else if (i === 666666) {
-//         console.log(i);
-//     } else if (i === 7777777) {
-//         console.log(i);
-//     } else if (i === 88888888) {
-//         console.log(i);
-//     } else if (i === 999999999) {
-//         console.log(i);
+// for (var i = 1; i <= 999999999; i++) {   <<<<<Attempt at number triangle
+//     var number = 1
+//     if(number === 1){
+//         console.log(number);
+//     } else if (number === 22){
+//         console.log(number);
+//     } else if (number === 333) {
+//         console.log(number);
+//     }  else if (number === 4444) {
+//         console.log(number);
+//     } else if (number === 55555) {
+//         console.log(number);
+//     } else if (number === 666666) {
+//         console.log(number);
+//     } else if ( number === 7777777) {
+//         console.log(number);
+//     } else if ( number === 88888888) {
+//         console.log(number);
+//     } else if ( number === 999999999) {
+//         console.log(number);
 //     }
 // }
+// for (var i = 0; i < 9; i++) {
+//     var number = "";
+//     for  (var j = 0; j<= i; j++) {
+//         number = number + (i+1) + "";
+//     }
+//     console.log(number);
+// }
 
-for (i = 100; i >= 5; i -= 5){
+
+
+
+for (var i = 100; i >= 5; i -= 5){
     console.log(i);
 }
