@@ -50,19 +50,19 @@
      *  > second([1, 2, 3, 4, 5]) // returns 2
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
-    var array1 = [1, 2, 3, 4, 5];
-    function first ([array]) {
-        return array1[0]
-    }
-    console.log(first(array1));
 
-    function second ([array]) {
-        return array1[1]
+    function first (array) {
+        return array[0]
     }
-    console.log(second(array1));
+    console.log(first([1, 2, 3, 4, 5]));
 
-    function last ([array]) {
-        return array1[array1.length - 1];
+    function second (array) {
+        return array[1]
     }
-    console.log(last(array1));
+    console.log(second([1, 2, 3, 4, 5]));
+
+    function last (array) {
+        return array[array.length - 1];
+    }
+    console.log(last([1, 2, 3, 4, 5]));
 })();
