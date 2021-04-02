@@ -1,6 +1,6 @@
 "use strict";
 //Immediately Invoke Function Expression (IIFE's) <<< This protects sensitve data such as variables
-(function() {
+(function () {
 
     console.log("Hello World");
 

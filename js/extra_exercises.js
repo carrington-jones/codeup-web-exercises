@@ -1,5 +1,5 @@
 
-1.
+// 1.
 var userName = prompt("What is your name?");
 if (userName.length > 0) {
     alert("Your name is " + userName + " and that is " + (userName.length) + " letters long!")

@@ -219,8 +219,8 @@
 // }
 
 
-
 function concat(input1, input2) {
     return toString(input1 + input2);
 }
+
 console.log(concat(hello, world))

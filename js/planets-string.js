@@ -51,11 +51,13 @@
 // console.log(allIndexesOf("fruits", "pineapple"));
 
 
-function getHighestNumber (firstNumber, secondNumber, thirdNumber) {
+function getHighestNumber(firstNumber, secondNumber, thirdNumber) {
     if ((((typeof (firstNumber) === "number") && (typeof (secondNumber) === "number"))) && (typeof (thirdNumber) === "number")) {
         return Math.max(firstNumber, secondNumber, thirdNumber);
     } else {
         return false
     }
-} console.log(getHighestNumber())
+}
+
+console.log(getHighestNumber())
 

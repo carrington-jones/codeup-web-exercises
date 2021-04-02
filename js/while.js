@@ -17,12 +17,12 @@ var allCones = Math.floor(Math.random() * 50) + 50;
 
 do {
     var conesSold = Math.floor(Math.random() * 5) + 1;
-    if(allCones >= conesSold) {
-       allCones = allCones - conesSold;
-       console.log("I sold "+ conesSold + " cones.");
-       console.log("I need to sell " + allCones + " more cones.");
+    if (allCones >= conesSold) {
+        allCones = allCones - conesSold;
+        console.log("I sold " + conesSold + " cones.");
+        console.log("I need to sell " + allCones + " more cones.");
     } else if (conesSold > allCones) {
         console.log("I cannot sell you " + conesSold + " cones, because I only have " + allCones + ".");
     }
-}while(allCones > 0);
+} while (allCones > 0);
 console.log("Yay! I sold them all");

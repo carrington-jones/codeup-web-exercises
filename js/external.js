@@ -21,7 +21,6 @@
 // alert("Your total cost is $" + totalCost.toFixed(2));
 
 
-
 // var googleRate = prompt("How much does Google pay you per hour?");
 // parseFloat(googleRate);
 // var amazonRate = prompt("How much does Amazon pay you per hour?");

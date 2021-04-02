@@ -1,4 +1,4 @@
-(function() {
+(function () {
     "use strict";
 
     /**
@@ -13,8 +13,8 @@
      */
     var person = {};
 
-        person.firstName = "Carrington";
-        person.lastName = "Jones";
+    person.firstName = "Carrington";
+    person.lastName = "Jones";
 
     console.log(person.firstName);
     console.log(person.lastName);
@@ -51,13 +51,13 @@
         {name: 'Ryan', amount: 250},
         {name: 'George', amount: 320}
     ];
-shoppers.forEach(function(shopper) {
-    if(shopper.amount >= 200) {
-        console.log(shopper.name + " you get a discount!" + "Your orginal total amount was $" + shopper.amount + " Your new total is $" + (shopper.amount * .88).toFixed(2))
-    } else{
-        console.log(shopper.name + " you do not get a discount" + " Your total is $" + shopper.amount)
-    }
-});
+    shoppers.forEach(function (shopper) {
+        if (shopper.amount >= 200) {
+            console.log(shopper.name + " you get a discount!" + "Your orginal total amount was $" + shopper.amount + " Your new total is $" + (shopper.amount * .88).toFixed(2))
+        } else {
+            console.log(shopper.name + " you do not get a discount" + " Your total is $" + shopper.amount)
+        }
+    });
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -137,9 +137,9 @@ shoppers.forEach(function(shopper) {
      *      ---
      *      ...
      */
-        // books.forEach(function(book) {
-        //     console.log("Book # " + (books.indexOf(book)+1) + "\n" + "Title: " + book.title + "\n" + book.author.firstName + " " + book.author.lastName)
-        // });
+    // books.forEach(function(book) {
+    //     console.log("Book # " + (books.indexOf(book)+1) + "\n" + "Title: " + book.title + "\n" + book.author.firstName + " " + book.author.lastName)
+    // });
 
 
     /**
@@ -162,6 +162,7 @@ shoppers.forEach(function(shopper) {
             }
         });
     }
+
 // console.log(createBook("1984", "George", "Orwell"));
 
     var books = []
@@ -174,15 +175,13 @@ shoppers.forEach(function(shopper) {
 
 // >>>>>>>>>>>>>>>>2nd bonus<<<<<<<<<<<<<<<<<<
 //
- function showBookInfo (book, bookNumber) {
-         console.log("Book # " + (bookNumber + 1));
-         console.log("Title: " + book.title);
-         console.log("author: " + book.author.firstName + " " + book.author.lastName);
- }
-  books.forEach(showBookInfo);
+    function showBookInfo(book, bookNumber) {
+        console.log("Book # " + (bookNumber + 1));
+        console.log("Title: " + book.title);
+        console.log("author: " + book.author.firstName + " " + book.author.lastName);
+    }
 
-
-
+    books.forEach(showBookInfo);
 
 
 })();

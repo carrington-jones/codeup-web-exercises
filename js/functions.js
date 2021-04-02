@@ -11,6 +11,7 @@
 function sayHello(name) {
     return "Hello, " + name;
 }
+
 console.log(sayHello("codeup"));
 
 /**
@@ -57,7 +58,8 @@ var random = Math.floor((Math.random() * 3) + 1);
  * number)
  */
 var random = Math.floor((Math.random() * 3) + 1);
-function isTwo (number) {
+
+function isTwo(number) {
     return (number === 2);
 }
 
@@ -75,7 +77,7 @@ console.log(isTwo(random)); //<<< This is function argument
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
 function calculateTip(tipPercentage, billAmount) {
-   return tipPercentage * billAmount;
+    return tipPercentage * billAmount;
 }
 
 var tip1 = calculateTip(.20, 20.00);
@@ -111,8 +113,9 @@ alert("Your tip would be: $" + (calculateTip(billAmount, customTip) / 100).toFix
  */
 
 
-    function applyDiscount (orginalPrice, discountPercent) {
+function applyDiscount(orginalPrice, discountPercent) {
     var discountAmount = orginalPrice * discountPercent;
     return orginalPrice - discountAmount;
 }
+
 console.log(applyDiscount(100, .2));
