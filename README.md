@@ -3,4 +3,3 @@
 ## Purpose
 To collect the many exercises for the front end portion of the Codeup web development course.
 
-##More stuff More content
