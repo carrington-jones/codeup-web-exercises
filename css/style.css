@@ -1,6 +1,44 @@
 
 
-.fancy_header {
-    color: purple; /* single line comment */
+h1, h2, h3 {
+    color: #810181; /* single line comment */
     text-decoration: underline;
+}
+
+h1{
+    text-align: center
+}
+
+header p {
+    text-align: center
+}
+
+body{
+    background-color: lightgray;
+    background-image: url(../img/30x30.svg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    font-family: 'Lexend', sans-serif;
+}
+
+ul {
+    list-style: square;
+}
+
+table, th, td{
+    border-spacing: 1px;
+    font-family: Georgia, serif;
+    border: 2px solid black;
+}
+a:link{
+    color:red;
+}
+a:visited{
+    color:yellow;
+}
+a:hover{
+    color:blue;
+}
+a:active{
+    color:black;
 }
