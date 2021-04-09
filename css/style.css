@@ -1,16 +1,8 @@
 
 
 h1, h2, h3 {
-    color: #810181; /* single line comment */
+    color: #9f0411; /* single line comment */
     text-decoration: underline;
-}
-
-h1{
-    text-align: center
-}
-
-header p {
-    text-align: center
 }
 
 body{
@@ -19,16 +11,25 @@ body{
     background-repeat: no-repeat;
     background-position: top center;
     font-family: 'Lexend', sans-serif;
+    text-align: center;
 }
 
 ul {
-    list-style: square;
+    list-style: square inside;
+}
+
+ol{
+    list-style-position: inside;
 }
 
 table, th, td{
     border-spacing: 1px;
     font-family: Georgia, serif;
     border: 2px solid black;
+}
+.centerTable{
+    margin-left: auto;
+    margin-right: auto;
 }
 a:link{
     color:red;
@@ -40,5 +41,5 @@ a:hover{
     color:blue;
 }
 a:active{
-    color:black;
+    color:hotpink;
 }

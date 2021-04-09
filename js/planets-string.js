@@ -38,26 +38,26 @@
 //
 //
 // >>>>>>>>>>>>>>>Extra-Exercise-Practice<<<<<<<<<
-// var fruits = ["apple", "banana", "orange", "apple", "pineapple"];
-// function allIndexesOf(array,value) {
-//     if (fruits.indexOf(value) === -1) {
-//         return []
-//     } else {
-//         return [fruits.indexOf(value)];
-//     }
-// }
-// console.log(allIndexesOf("fruits", "apple"));
-// console.log(allIndexesOf("fruits", "guava"));
-// console.log(allIndexesOf("fruits", "pineapple"));
-
-
-function getHighestNumber(firstNumber, secondNumber, thirdNumber) {
-    if ((((typeof (firstNumber) === "number") && (typeof (secondNumber) === "number"))) && (typeof (thirdNumber) === "number")) {
-        return Math.max(firstNumber, secondNumber, thirdNumber);
+var fruits = ["apple", "banana", "orange", "apple", "pineapple"];
+function allIndexesOf(array,value) {
+    if (fruits.indexOf(value) === -1) {
+        return []
     } else {
-        return false
+        return [fruits.indexOf(value)];
     }
 }
+console.log(allIndexesOf("fruits", "apple"));
+console.log(allIndexesOf("fruits", "guava"));
+console.log(allIndexesOf("fruits", "pineapple"));
 
-console.log(getHighestNumber())
+
+// function getHighestNumber(firstNumber, secondNumber, thirdNumber) {
+//     if ((((typeof (firstNumber) === "number") && (typeof (secondNumber) === "number"))) && (typeof (thirdNumber) === "number")) {
+//         return Math.max(firstNumber, secondNumber, thirdNumber);
+//     } else {
+//         return false
+//     }
+// }
+//
+// console.log(getHighestNumber())
 
