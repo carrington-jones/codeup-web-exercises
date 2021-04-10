@@ -5,40 +5,26 @@ body, html {
     margin: 0;
     font-family: Arial, Ubuntu, sans-serif;
 }
-
-.message-info{
-    margin-top: 7px;
-    margin-bottom: 7px;
-    color:#4c47a2;
-    padding: 2px;
-    background-color: #cddeff;
+div {
+    margin: 7px;
+    padding: .3em;
     width: 50%;
+    border: 1px solid #dadada;
     border-radius: 5px
+}
+.message-info{
+    color:#4c47a2;
+    background-color: #cddeff;
 }
 .message-success {
-    margin-top: 7px;
-    margin-bottom: 7px;
     color: #3a8a5b;
-    padding: 2px;
     background-color: #cff3da;
-    width: 50%;
-    border-radius: 5px
 }
 .message-warning {
-    margin-top: 7px;
-    margin-bottom: 7px;
     color: #a09032;
-    padding: 2px;
     background-color: #fcfbc9;
-    width: 50%;
-    border-radius: 5px
 }
 .message-error {
-    margin-top: 7px;
-    margin-bottom: 7px;
     color: #9f455a;
-    padding: 2px;
     background-color: #fad3d7;
-    width:50%;
-    border-radius: 5px
 }
