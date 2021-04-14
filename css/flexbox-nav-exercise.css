@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+}
+nav {
+    background-color: #c1c1c1;
+    position:relative;
+}
+
+nav a:hover {
+    color: blue;
+    text-decoration: none;}
+a {
+    display: inline-block;
+}
+ul {
+    display:flex;
+    list-style-type: none;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+li {
+    font-family: 'Montserrat', sans-serif;
+}
+li a {
+    padding: 0 1em;
+    text-decoration: none;
+    color:black;
+}
+
+li:nth-of-type(4){
+    margin-right: auto;
+}
+
+li:nth-of-type(6){
+    margin-left: auto;
+}
+
+#MyLogo {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 3em;
+    padding: .2em 0;
+    display: flex;
+}
