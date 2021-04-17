@@ -1,5 +1,18 @@
+.d-flex{
+    align-items: center;
+}
+#order-online-link{
+    color: #7c7c7d;
+}
+#menu-link{
+    color: black;
+}
 .bg-pizza {
     background-image:url("../img/pizza.png");
+    background-size: cover;
+}
+#pizza-text{
+    padding: 0;
 }
 .jumbotron {
     display:flex;
@@ -11,9 +24,14 @@ h1 {
     display: flex;
     justify-content: center;
     margin-top: 50px;
-    margin-bottom: 50px
+    margin-bottom: 50px;
 }
+
 .nav-link{
     display:flex;
     flex-direction: row;
+}
+
+.card-footer{
+    overflow: scroll;
 }
