@@ -48,17 +48,17 @@
     <h2>Build your own pizza!</h2>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-            <a class="nav-link active" id="size-crust-tab" data-toggle="tab" href="#Crust" role="tab" aria-controls="home" aria-selected="true"><h6><span class="badge badge-secondary">1</span></h6>Size and Crust</a>
+            <a class="nav-link active" id="size-crust-tab" data-toggle="tab" href="#crust" role="tab" aria-controls="home" aria-selected="true"><h6><span class="badge badge-secondary">1</span></h6>Size and Crust</a>
         </li>
         <li class="nav-item" role="presentation">
             <a class="nav-link" id="cheese-sauce-tab" data-toggle="tab" href="#cheese-sauces" role="tab" aria-controls="profile" aria-selected="false"><h6><span class="badge badge-secondary">2</span></h6>Cheese and Sauce</a>
         </li>
         <li class="nav-item" role="presentation">
-            <a class="nav-link" id="toppings-tab" data-toggle="tab" href="#Toppings" role="tab" aria-controls="contact" aria-selected="false"><h6><span class="badge badge-secondary">3</span></h6>Toppings</a>
+            <a class="nav-link" id="toppings-tab" data-toggle="tab" href="#toppings" role="tab" aria-controls="contact" aria-selected="false"><h6><span class="badge badge-secondary">3</span></h6>Toppings</a>
         </li>
     </ul>
     <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="Crust" role="tabpanel" aria-labelledby="home-tab">
+        <div class="tab-pane fade show active" id="crust" role="tabpanel" aria-labelledby="home-tab">
 <!--THIS IS THE CRUST CARD-->
             <div class="card">
                 <div class="card-header bg-primary text-white">Choose size and crust</div>
@@ -132,12 +132,13 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">How much cheese would you like on your pizza?</li>
                                 <li class="list-group-item">
-                                    <select class="form-control form-control-sm">
-                                        <option>Regular</option>
+                                    <select class="custom-select">
+                                        <option selected> Regular</option>
                                         <option>Light</option>
                                         <option>Extra</option>
                                         <option>Double</option>
-                                    </select></li>
+                                    </select>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -149,16 +150,17 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">What Type of sauce would you like?</li>
                             <li class="list-group-item">
-                                <select class="form-control form-control-sm">
-                                    <option>Tomato sauce</option>
+                                <select class="custom-select">
+                                    <option selected>Tomato sauce</option>
                                     <option>Marinara Sauce</option>
                                     <option>BBQ Sauce</option>
                                     <option>Alfredo Sauce</option>
-                                </select></li>
+                                </select>
+                            </li>
                             <li class="list-group-item">How much sauce would you like on your pizza?</li>
                             <li class="list-group-item">
-                                <select class="form-control form-control-sm">
-                                    <option>Light</option>
+                                <select class="custom-select">
+                                    <option selected>Light</option>
                                     <option>Normal</option>
                                     <option>Extra</option>
                                 </select></li>
@@ -172,7 +174,7 @@
                 </div>
             </div>
         </div>
-        <div class="tab-pane fade" id="Toppings" role="tabpanel" aria-labelledby="contact-tab">
+        <div class="tab-pane fade" id="toppings" role="tabpanel" aria-labelledby="contact-tab">
             <!--This is the TOPPINGS CARD-->
             <div class="card">
                 <div class="card-header bg-primary text-white">Choose Toppings</div>
@@ -265,17 +267,6 @@
                 </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
