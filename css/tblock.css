@@ -1,0 +1,13 @@
+#codytheDuck{
+    font-size: 55px;
+}
+#resumeBorder{
+    border-bottom: 7px solid #99aa7b;
+    padding: 0 15px;
+    margin: 0;
+}
+@media screen and (min-width:768px) {
+    #developmentprojectHeader{
+        margin: 0;
+    }
+}
