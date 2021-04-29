@@ -53,7 +53,12 @@
 // for (count = 0; count <= 100; count = count+1){
 //     console.log(count);
 // }
-// for (i=0; i<=100; i++) {
+// for (i = 0; i <= 100; i++) {
 //     console.log(i);
 // }
-
+// for(var i = 0; i <= 10; i++) {
+//     console.log(i);
+// }
+for(var i = 0; i = 10; i++) {
+    console.log(i);
+}

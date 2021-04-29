@@ -185,3 +185,9 @@
 
 
 })();
+
+var band ={}
+
+bandgenre = "metal"
+
+console.log(band)
