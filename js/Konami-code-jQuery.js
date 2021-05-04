@@ -1,22 +1,21 @@
 "use strict";
 
-var bucket =[]
+var bucket = []
 var secretcode = "38384040373937396665"
 var terminate = "846982777378658469"
 
 var paragraph = document.querySelector("#paragraph");
 
 //Logs keystrokes
-$(document).keydown(function(e){
+$(document).keydown(function (e) {
     var key = e.keyCode; //Triggers transform function when enter key is pressed
     if (e.keyCode === 13) {
-            transform();
-        }
-    if(e.keyCode === 83) { //Starts code over when s key is pressed
+        transform();
+    }
+    if (e.keyCode === 83) { //Starts code over when s key is pressed
         bucket = [];
         paragraph.innerHTML = bucket
-    }
-    else {
+    } else {
         bucket.push(key); //Logging of keystrokes
         paragraph.innerHTML = bucket
         console.log(bucket)
@@ -56,13 +55,14 @@ var terminationTimer = 5;
 var count = 0;
 var counter = document.querySelector("#counter");
 
-function counterIncrease(){
-        count++;
-        counter.innerHTML = count
+function counterIncrease() {
+    count++;
+    counter.innerHTML = count
 }
-$(document).keydown(function(e){
+
+$(document).keydown(function (e) {
     if (e.keyCode === 13) {
-       counterIncrease();
+        counterIncrease();
     }
 })
 
