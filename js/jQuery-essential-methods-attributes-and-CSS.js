@@ -1,43 +1,43 @@
 $("dd").addClass('invisible');
 
-$("#answerReveal").click(function(){
-$("dd").toggleClass('invisible');
+$("#answerReveal").click(function () {
+    $("dd").toggleClass('invisible');
 });
 
-$("dt").click(function(){
+$("dt").click(function () {
     $(this).toggleClass("highlight");
 })
 
-$("#yellowButton").click(function(){
-    $("ul").each(function(){
+$("#yellowButton").click(function () {
+    $("ul").each(function () {
         $(this).children().last().css("background-color", "yellow");
     })
 });
 
-$("h3").click(function() {
+$("h3").click(function () {
     // $("h3").each(function(){
-        $(this).next().first().css("font-weight", "bold");
+    $(this).next().first().css("font-weight", "bold");
     // });
 });
 
-$("li").click(function(){
-        $(this).parent().children().first().css("color", "blue")
+$("li").click(function () {
+    $(this).parent().children().first().css("color", "blue")
 
 });
 
 //BONUS
 //1st Button
-$("#leftButton").click(function(){
+$("#leftButton").click(function () {
     var nextImage = $(this).parent().next().children().first();
     var nextImageSrc = nextImage.attr('src');
     var thisSrc = $(this).prev().attr('src');
     $(this).prev().attr('src', nextImageSrc);
-    nextImage.attr('src',thisSrc);
+    nextImage.attr('src', thisSrc);
 });
 //2nd Button
 
 //3rd Button
-$("#rightButton").click(function(){
+$("#rightButton").click(function () {
     var previousImage = $(this).parent().prev().children().first();
     var previousImageSrc = previousImage.attr('src');
     var thisImage = $(this).prev();
