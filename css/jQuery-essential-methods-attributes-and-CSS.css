@@ -5,3 +5,8 @@
 .highlight {
     background-color: hotpink;
 }
+
+img{
+    border: solid 10px saddlebrown;
+    border-radius: 8px;
+}
