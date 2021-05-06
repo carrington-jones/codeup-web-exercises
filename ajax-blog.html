@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX Blog</title>
+</head>
+<body>
+
+<div id="posts">
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+    $("#posts").html("")
+    $.ajax("data/blog.json").done(function (blog) {
+        console.log(blog);
+        for (var i = 0; i < blog.length; i++) {
+            var htmlStr = "<div id='blog-" + (i + 1) + "' class='blog'>";
+            htmlStr += "<h3>" + blog[i].title + "</h3>";
+            htmlStr += "<p>" + blog[i].content + "</p>";
+            htmlStr += "<p>" + blog[i].categories + "</p>";
+            htmlStr += "<p>" + blog[i].date + "</p>";
+            htmlStr += "</div>";
+            $("#posts").append(htmlStr);
+        }
+    });
+
+</script>
+
+
+
+</body>
+</html>

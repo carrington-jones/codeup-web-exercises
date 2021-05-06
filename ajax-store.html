@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Online Store</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/ajax-store.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<h1>My Tool Store</h1>
+<h1 id="header1" class="d-flex mb-3 justify-content-center">Codeup Tool Store</h1>
 
-<table id="products">
-    <thead>
+<table id="products" class="table table-striped table-dark table-bordered">
+    <thead class="thead-dark">
         <tr>
-            <th>Title</th>
+            <th>Tool</th>
             <th>Quantity</th>
             <th>Price</th>
             <th>Categories</th>
@@ -19,23 +23,24 @@
     </thead>
     <tbody id="insertProducts"></tbody>
 </table>
-<button id="refresh">Refresh JSON</button>
-<main id="main">
+<button id="refresh" type="button" class="btn btn-outline-dark">Refresh Inventory</button>
 
-
-</main>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 <script>
 (function() {
     "use strict";
     // TODO: Create an AJAX GET request for the file under data/inventory.json
+    /// TODO: Take the data from inventory.json and append it to the products table
+    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+    //             its contents and fields
+    //       HINT: You will want to target #insertProducts for your new HTML elements
     function refreshJSON() {
         $("#insertProducts").html("")
         $.ajax("data/inventory.json").done(function (inventory) {
             console.log(inventory);
             for (var i = 0; i < inventory.length; i++) {
-                var htmlStr = "<tr id='inventory-" + (i + 1) + "' class='inventory'>";
+                var htmlStr = "<tr id='inventory-" + (i + 1) + "' class='inventory-" + (i + 1) + "'>";
                 htmlStr += "<td>" + inventory[i].title + "</td>";
                 htmlStr += "<td>" + inventory[i].quantity + "</td>";
                 htmlStr += "<td>" + "$" + inventory[i].price + "</td>";
@@ -47,11 +52,10 @@
     }
     $("#refresh").click(refreshJSON);
     refreshJSON();
-    // TODO: Take the data from inventory.json and append it to the products table
-    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
-    //             its contents and fields
-    //       HINT: You will want to target #insertProducts for your new HTML elements
 
+    $("#header1").click(function () {
+        $("#products").toggleClass('invisible');
+    });
 
 })();
 </script>

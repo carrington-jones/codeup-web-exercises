@@ -1,0 +1,15 @@
+.inventory-1{
+    background-color: red !important;
+}
+.table td{
+    text-align: center;
+}
+.table th{
+    text-align: center;
+}
+.table {
+    font-family: 'Dosis', sans-serif;
+}
+h1{
+    font-family: 'Noto Sans JP', sans-serif;
+}
