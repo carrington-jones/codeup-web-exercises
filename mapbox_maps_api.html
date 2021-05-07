@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mapbox maps api</title>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet'/>
+
+</head>
+<body>
+
+<div id='map' style='width: 600px; height: 500px;'></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+<script>
+    mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
+    var map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/outdoors-v11', // style URL
+        center: [-98.4916, 29.4252], // starting position [lng, lat]
+        zoom: 8 // starting zoom
+    });
+
+    var marker = new mapboxgl.Marker({
+        color: 'red'
+    })
+        .setLngLat([-98.4916, 29.4252])
+        .addTo(map);
+
+    var popup = new mapboxgl.Popup()
+        .setLngLat(marker.getLngLat())
+
+
+    marker.setPopup(popup);
+
+    $(marker).click(function(){
+        popup.addTo(map);
+    })
+
+    geocode("15802 W I-10, San Antonio, TX 78249", MAPBOX_ACCESS_TOKEN).then(function (info) {
+        console.log(info);
+        var firstMarker = {
+            lng: info[0],
+            lat: info[1]
+        };
+        marker.setLngLat(firstMarker);
+        popup.setHTML('<h3> AppleBees </h3>');
+
+    })
+
+</script>
+</body>
+</html>
