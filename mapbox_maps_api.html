@@ -16,6 +16,7 @@
 <script src="js/mapbox-geocoder-utils.js"></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
 <script>
+    //MAP//
     mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
     var map = new mapboxgl.Map({
         container: 'map', // container ID
@@ -23,21 +24,50 @@
         center: [-98.4916, 29.4252], // starting position [lng, lat]
         zoom: 8 // starting zoom
     });
-
+    //1st Marker
     var marker = new mapboxgl.Marker({
         color: 'red'
     })
         .setLngLat([-98.4916, 29.4252])
         .addTo(map);
-
+    //2nd Marker
+    var marker2 = new mapboxgl.Marker({
+        color: 'green'
+    })
+        .setLngLat([-98.4916, 29.4252])
+        .addTo(map);
+    //3rd Marker
+    var marker3 = new mapboxgl.Marker({
+        color: 'orange'
+    })
+        .setLngLat([-98.4916, 29.4252])
+        .addTo(map);
+    //1st Popup
     var popup = new mapboxgl.Popup()
         .setLngLat(marker.getLngLat())
 
-
     marker.setPopup(popup);
-
+    //click function for 1st popup
     $(marker).click(function(){
         popup.addTo(map);
+    })
+    //2nd popup
+    var popup2 = new mapboxgl.Popup()
+        .setLngLat(marker2.getLngLat())
+
+    marker2.setPopup(popup2);
+    //click function for 2nd popup
+    $(marker2).click(function(){
+        popup2.addTo(map);
+    })
+    //3rd popup
+    var popup3 = new mapboxgl.Popup()
+        .setLngLat(marker3.getLngLat())
+
+    marker3.setPopup(popup3);
+    //click function for 3rd popup
+    $(marker3).click(function(){
+        popup3.addTo(map);
     })
 
     geocode("15802 W I-10, San Antonio, TX 78249", MAPBOX_ACCESS_TOKEN).then(function (info) {
@@ -50,6 +80,35 @@
         popup.setHTML('<h3> AppleBees </h3>');
 
     })
+
+    geocode("19141 Stone Oak Pkwy #113, San Antonio, TX 78258", MAPBOX_ACCESS_TOKEN).then(function (info) {
+        console.log(info);
+        var secondMarker = {
+            lng: info[0],
+            lat: info[1]
+        };
+        marker2.setLngLat(secondMarker);
+        popup2.setHTML('<h3> Trilogy Pizza </h3>');
+
+    })
+
+    geocode("606 W Cypress St, San Antonio, TX 78212", MAPBOX_ACCESS_TOKEN).then(function (info) {
+        console.log(info);
+        var thirdMarker = {
+            lng: info[0],
+            lat: info[1]
+        };
+        marker3.setLngLat(thirdMarker);
+        popup3.setHTML('<h3> The Cove </h3>');
+
+    })
+
+
+
+
+
+
+
 
 </script>
 </body>
