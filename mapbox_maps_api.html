@@ -3,12 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>mapbox maps api</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet'/>
 
 </head>
 <body>
 
 <div id='map' style='width: 600px; height: 500px;'></div>
+<!--ZOOM DROPDOWN-->
+<label for="zoom">Select Zoom Level:</label>
+
+<select name="zoom" id="zoom">
+    <option id="zoom5" value="zoom5">Zoom 5</option>
+    <option id="zoom10" value="zoom10">Zoom 10</option>
+    <option id="zoom15" value="zoom15">Zoom 15</option>
+</select>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -101,15 +110,12 @@
         marker3.setLngLat(thirdMarker);
         popup3.setHTML('<h3> The Cove </h3>');
 
-    })
+    });
 
-
-
-
-
-
+    //Zoom functionality//
 
 
 </script>
+
 </body>
 </html>
