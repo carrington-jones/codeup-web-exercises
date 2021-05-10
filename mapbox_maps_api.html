@@ -18,7 +18,9 @@
     <option id="zoom10" value="zoom10">Zoom 10</option>
     <option id="zoom15" value="zoom15">Zoom 15</option>
 </select>
-
+<div>
+    <button id="hideMarkers" type="button" class="btn btn-primary">Hide all markers</button>
+</div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="js/keys.js"></script>
@@ -111,10 +113,33 @@
         popup3.setHTML('<h3> The Cove </h3>');
 
     });
+    //TODO: Info windows can contain basic HTML, not just plain text. Add some additional information about your restaurant to the popup such as why it is your favorite, dishes you like, images, etc.
 
+    //TODO: Add a select input that allows the user to change the zoom level to 5, 15, or 20.
     //Zoom functionality//
+    document.getElementById("zoom").onchange = changeListener;
+
+    function changeListener(){
+        var value = this.value
+        console.log(value);
+
+        if (value == "zoom5"){
+            map.setZoom(5)
+        }if (value == "zoom10"){
+            map.setZoom(10)
+        }if (value == "zoom15"){
+            map.setZoom(15)
+        }
+    }
 
 
+    //TODO: Add a text box for the user to enter an address that will use geocoding to center the map and place a marker on that location.
+
+    //TODO: Add a button that will hide all markers.
+
+    //TODO: Animate a marker to bounce up and down. Alter the animation to stop after two seconds. Make the amount of bounce animation scale according to zoom level.
+
+    //TODO: Replace the generic marker icon with an image that is more appropriate for each restaurant.
 </script>
 
 </body>
