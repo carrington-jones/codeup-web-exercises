@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather Map</title>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.0/mapbox-gl.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet'/>
 </head>
 <body>
 
 
 <div>
-    <h4>Date</h4>
-    <p id="todaysDate">Today's Date</p>
-    <h4>Weather Forecast</h4>
-    <p id="weatherForecast1">Weather Forecast</p>
-    <h4>Today's High</h4>
-    <p id="todaysHigh">Weather Data</p>
-    <h4>Today's Low</h4>
-    <p id="todaysLow">Weather Data 2</p>
 
-    <p id="logLatMarker"></p>
+    <h4>Weather Forecast</h4>
+    <div id="weatherforecast">
+
+    </div>
+
+
+
 </div>
 <!--MAP HTML-->
 <div id='map' style='width: 600px; height: 500px;'></div>
@@ -34,89 +34,8 @@
 <script src="js/keys.js"></script>
 <!--Geocoder-->
 <script src="js/mapbox-geocoder-utils.js"></script>
-<!--MapBox-->
-<script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
-<script>
-    //MAP//
-    mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
-    var map = new mapboxgl.Map({
-        container: 'map', // container ID
-        style: 'mapbox://styles/mapbox/outdoors-v11', // style URL
-        center: [-76.6502, 40.2859], // starting position [lng, lat]
-        zoom: 8 // starting zoom
-    });
+<script src="js/weather_map.js"></script>
 
-    //Map Controls//
-    map.addControl(new mapboxgl.NavigationControl());
-
-    //Map Marker//
-    var marker = new mapboxgl.Marker({
-        draggable: true,
-        color: "red"
-    }).setLngLat([-76.6502, 40.2859])
-        .addTo(map);
-
-    //Popup//
-    var popup = new mapboxgl.Popup()
-        .setLngLat(marker.getLngLat())
-        .setHTML("<h3>Hello World!</h3>")
-        .setMaxWidth("300px")
-    marker.setPopup(popup);
-
-
-    // marker.on('dragend', function(){
-    //     $('#logLatMarker').html(marker.getLngLat().toString())
-    // })
-
-    $("#btn").click(function() {
-        var userInput = $("#userWeatherInput").val();
-        geocode(userInput, MAPBOX_ACCESS_TOKEN).then(function (info) {
-            var userMarker1 = {
-                lng: info[0],
-                lat: info[1]
-            };
-            marker.setLngLat(userMarker1);
-            popup.setHTML("<h3>" + userInput + "</h3>");
-            map.flyTo({center: userMarker1});
-        });
-    })
-
-
-    var hersheyCoordinates = [40.2859, -76.6502]
-    $.ajax("https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + hersheyCoordinates[0] + "&lon=" + hersheyCoordinates[1] + "&exclude=current,hourly,minutely&appid=" + WEATHER_MAP_TOKEN).done(function (resp){
-        console.log(resp);//This logs entire weather object
-        var today = resp.daily[0]; //Current Date formula
-        var todayDate = new Date(today.dt * 1000);
-        console.log(todayDate);
-        $("#todaysDate").html(todayDate)
-
-        var weatherForecast1 = resp.daily[0]; //Today forecast formula
-        var weatherForecast2 = weatherForecast1.weather[0].description;
-        console.log(weatherForecast2)
-        $("#weatherForecast1").html(weatherForecast2)
-
-        var dailyHigh1 = resp.daily[0] //Today Temp High Formula
-        var dailyHigh2 = Math.round(dailyHigh1.temp.max)
-        console.log(dailyHigh2)
-        $("#todaysHigh").html(dailyHigh2 + " degrees")
-
-        var dailyLow1 = resp.daily[0] //Today Temp Low Formula
-        var dailyLow2 = Math.round(dailyLow1.temp.min)
-        console.log(dailyLow2)
-        $("#todaysLow").html(dailyLow2 + " degrees")
-
-    });
-
-
-    // $.get("http://api.openweathermap.org/data/2.5/weather", {
-    //     APPID: WEATHER_MAP_TOKEN,
-    //     lat: 29.423017,
-    //     lon: -98.48527,
-    //     units: "imperial"
-    // }).done(function(data) {
-    //     console.log(data);
-    // });
-</script>
 
 </body>
 </html>
