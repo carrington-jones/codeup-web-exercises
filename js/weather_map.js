@@ -1,4 +1,4 @@
-<!--MapBox-->
+//MapBox
 
 //MAP//
 mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
@@ -26,11 +26,40 @@ var popup = new mapboxgl.Popup()
     .setMaxWidth("300px")
 marker.setPopup(popup);
 
+//Code that runs when marker is dropped
+marker.on('dragend', function(){
+    var markerLngLat = marker.getLngLat();
+    //Need to rework after lunch. Will update the cards but no luck on re-doing header
+    var dragmarkername = reverseGeocode(markerLngLat, MAPBOX_ACCESS_TOKEN).then(function (info) {});
+    // $("#weatherTitle").html("Weather Forecast for " + dragmarkername);
+    // console.log(markerLngLat)
 
-// marker.on('dragend', function(){
-//     $('#logLatMarker').html(marker.getLngLat().toString())
-// })
+    //This code updates weather cards and data based on where marker is dropped.
+    $.ajax("https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + markerLngLat.lat + "&lon=" + markerLngLat.lng + "&exclude=current,hourly,minutely&appid=" + WEATHER_MAP_TOKEN).done(function (markerData) {
+        console.log(markerData);//This logs entire weather object
+        var html = "";
+        for (var i = 0; i < 5; i++) {
+            var dailyForecast = markerData.daily[i];
+            var description = dailyForecast.weather[0].main
+            var date = new Date(dailyForecast.dt * 1000);
+            var Day = date.toLocaleString('en-us', {weekday: 'long'});
+            var Month = date.toLocaleString('en-us', {month: 'long'});
+            var numberDate = date.toLocaleString('en-us', {day: 'numeric'});
+            html += "<div class='card text-center col-2 mb-3 d-flex'>"
+            html += '<h3>' + Day + ' ' + Month + ' ' + numberDate + '</h3>';
+            html += '<p>' + description + '</p>';
+            html += '<p>High / Low</p>';
+            html += '<p>' + Math.round(dailyForecast.temp.max) + 'F / ';
+            html += +Math.round(dailyForecast.temp.min) + ' F</p>';
+            html += "</div>"
+        }
+        $('#weatherForecast').html(html);
+    });
 
+})
+
+
+//Code for flying to user input on Map
 $("#btn").click(function () {
     var userInput = $("#userWeatherInput").val();
     geocode(userInput, MAPBOX_ACCESS_TOKEN).then(function (info) {
@@ -41,30 +70,67 @@ $("#btn").click(function () {
         marker.setLngLat(userMarker1);
         popup.setHTML("<h3>" + userInput + "</h3>");
         map.flyTo({center: userMarker1});
+        console.log(userMarker1);
+        $("#weatherTitle").html("Weather Forecast for " + userInput);//Changes Header of page based on user input
+        // THIS CHANGES WEATHER BASED ON USER INPUT
+        $.ajax("https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + info[1] + "&lon=" + info[0] + "&exclude=current,hourly,minutely&appid=" + WEATHER_MAP_TOKEN).done(function (data) {
+            console.log(data);//This logs entire weather object
+            var html = "";
+            for (var i = 0; i < 5; i++) {
+                var dailyForecast = data.daily[i];
+                var description = dailyForecast.weather[0].main
+                var date = new Date(dailyForecast.dt * 1000);
+                var Day = date.toLocaleString('en-us', {weekday: 'long'});
+                var Month = date.toLocaleString('en-us', {month: 'long'});
+                var numberDate = date.toLocaleString('en-us', {day: 'numeric'});
+                html += "<div class='card text-center col-2 mb-3 d-flex'>"
+                html += '<h3>' + Day + ' ' + Month + ' ' + numberDate + '</h3>';
+                html += '<p>' + description + '</p>';
+                html += '<p>High / Low</p>';
+                html += '<p>' + Math.round(dailyForecast.temp.max) + 'F / ';
+                html += +Math.round(dailyForecast.temp.min) + ' F</p>';
+                html += "</div>"
+            }
+            $('#weatherForecast').html(html);
+        });
     });
 })
+// var hersheyCoordinates = [40.2859, -76.6502]
+//Initial Starting point. Hershey, PA
+var lat = 40.2859
+var lng = -76.6502
 
 
-var hersheyCoordinates = [40.2859, -76.6502]
-$.ajax("https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + hersheyCoordinates[0] + "&lon=" + hersheyCoordinates[1] + "&exclude=current,hourly,minutely&appid=" + WEATHER_MAP_TOKEN).done(function (resp) {
-    console.log(resp);//This logs entire weather object
+//Initial Weather on page load
+function weatherMap() {
+    $.ajax("https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + lat + "&lon=" + lng + "&exclude=current,hourly,minutely&appid=" + WEATHER_MAP_TOKEN).done(function (resp) {
+        console.log(resp);
+        renderWeather(resp);
+    });
+}
+
+weatherMap();
+
+//This logs and displays entire weather object
+function renderWeather(resp) {
+    var html = "";
     for (var i = 0; i < 5; i++) {
-        var html = "";
         var dailyForecast = resp.daily[i];
+        var description = dailyForecast.weather[0].main
         var date = new Date(dailyForecast.dt * 1000);
         var Day = date.toLocaleString('en-us', {weekday: 'long'});
         var Month = date.toLocaleString('en-us', {month: 'long'});
         var numberDate = date.toLocaleString('en-us', {day: 'numeric'});
-        html += "<div>"
-        html += '<h1>' + Day + ' ' + Month + ' ' + numberDate + '</h1>';
+        html += "<div class='card text-center col-2 mb-3 d-flex'>"
+        html += '<h3>' + Day + ' ' + Month + ' ' + numberDate + '</h3>';
+        html += '<p>' + description + '</p>';
         html += '<p>High / Low</p>';
         html += '<p>' + Math.round(dailyForecast.temp.max) + 'F / ';
         html += +Math.round(dailyForecast.temp.min) + ' F</p>';
         html += "</div>"
-        $('#weatherforecast').append(html);
     }
-});
-
+    $('#weatherForecast').html(html);
+}
 
 // var today = resp.daily[0]; //Current Date formula
 // var todayDate = new Date(today.dt * 1000);

@@ -4,36 +4,47 @@
     <meta charset="UTF-8">
     <title>Weather Map</title>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.0/mapbox-gl.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet'/>
 </head>
 <body>
 
 
 <div>
+    <div class="row d-flex justify-content-center">
+        <h4 id="weatherTitle">Weather Forecast Hershey, PA</h4>
+    </div>
+    <div id="weatherForecast" class="row justify-content-center">
 
-    <h4>Weather Forecast Hershey, PA</h4>
-    <div id="weatherforecast">
+    </div>
+    <div id="userWeatherInputClick">
 
     </div>
 
 
-
 </div>
 <!--MAP HTML-->
-<div id='map' style='width: 600px; height: 500px;'></div>
-
-<div>
-        <label for="userWeatherInput">Enter City</label><br>
-        <input id="userWeatherInput" type="text"><br><br>
-        <button id="btn">click</button>
+<div class="row justify-content-center">
+    <div id='map' class="d-flex" style='width: 600px; height: 500px;'></div>
 </div>
+<div class="row justify-content-center">
+    <div>
+        <label for="userWeatherInput">Enter City: </label>
+        <input id="userWeatherInput" type="text">
+        <button id="btn">click</button>
+    </div>
+</div>
+
+
 <!--jQuery-->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <!--API Keys-->
 <script src="js/keys.js"></script>
 <!--Geocoder-->
 <script src="js/mapbox-geocoder-utils.js"></script>
+<!--Javascript worksheet-->
 <script src="js/weather_map.js"></script>
 
 
