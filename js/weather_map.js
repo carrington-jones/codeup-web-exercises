@@ -47,12 +47,13 @@ marker.on('dragend', function(){
             var Month = date.toLocaleString('en-us', {month: 'long'});
             var numberDate = date.toLocaleString('en-us', {day: 'numeric'});
             html += "<div class='card text-center col-2 m-3 d-flex shadow-lg p-3 mb-5 bg-white rounded'>"
-            html += '<h3>' + Day + ' ' + Month + ' ' + numberDate + '</h3>';
+            html += '<h3>' + Day + '<br> ' + Month + ' ' + numberDate + '</h3>';
             html += '<p>' + "<img src=http://openweathermap.org/img/w/" + icons + ".png" + ">" + '</p>' //Icons from OpenWeather API
             html += '<p>' + description + '</p>';
             html += '<p>High / Low</p>';
             html += '<p>' + Math.round(dailyForecast.temp.max) + 'F / ';
-            html += +Math.round(dailyForecast.temp.min) + ' F</p>';
+            html += Math.round(dailyForecast.temp.min) + ' F</p>';
+            html += '<p>' + 'Wind Speed - ' + Math.round(dailyForecast.wind_speed) + ' MPH' + '</p>';
             html += "</div>"
         }
         $('#weatherForecast').html(html);
@@ -86,12 +87,13 @@ $("#btn").click(function () {
                 var Month = date.toLocaleString('en-us', {month: 'long'});
                 var numberDate = date.toLocaleString('en-us', {day: 'numeric'});
                 html += "<div class='card text-center col-2 m-3 d-flex shadow-lg p-3 mb-5 bg-white rounded'>"
-                html += '<h3>' + Day + ' ' + Month + ' ' + numberDate + '</h3>';
+                html += '<h3>' + Day + '<br> ' + Month + ' ' + numberDate + '</h3>';
                 html += '<p>' + "<img src=http://openweathermap.org/img/w/" + icons + ".png" + ">" + '</p>' //Icons from OpenWeather API
                 html += '<p>' + description + '</p>';
                 html += '<p>High / Low</p>';
                 html += '<p>' + Math.round(dailyForecast.temp.max) + 'F / ';
-                html += +Math.round(dailyForecast.temp.min) + ' F</p>';
+                html += Math.round(dailyForecast.temp.min) + ' F</p>';
+                html += '<p>' + 'Wind Speed - ' + Math.round(dailyForecast.wind_speed) + ' MPH' + '</p>';
                 html += "</div>"
             }
             $('#weatherForecast').html(html);
@@ -126,12 +128,13 @@ function renderWeather(resp) {
         var Month = date.toLocaleString('en-us', {month: 'long'});
         var numberDate = date.toLocaleString('en-us', {day: 'numeric'});
         html += "<div class='card text-center col-2 m-3 d-flex shadow-lg p-3 mb-5 bg-white rounded'>"
-        html += '<h3>' + Day + ' ' + Month + ' ' + numberDate + '</h3>';
+        html += '<h3>' + Day + '<br> ' + Month + ' ' + numberDate + '</h3>';
         html += '<p>' + "<img src=http://openweathermap.org/img/w/" + icons + ".png" + ">" + '</p>' //Icons from OpenWeather API
         html += '<p>' + description + '</p>';
         html += '<p>High / Low</p>';
         html += '<p>' + Math.round(dailyForecast.temp.max) + 'F / ';
-        html += +Math.round(dailyForecast.temp.min) + ' F</p>';
+        html += Math.round(dailyForecast.temp.min) + ' F</p>';
+        html += '<p>' + 'Wind Speed - ' + Math.round(dailyForecast.wind_speed) + ' MPH' + '</p>';
         html += "</div>"
     }
     $('#weatherForecast').html(html);
