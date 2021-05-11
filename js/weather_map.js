@@ -55,12 +55,11 @@ $.ajax("https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + h
         var Day = date.toLocaleString('en-us', {weekday: 'long'});
         var Month = date.toLocaleString('en-us', {month: 'long'});
         var numberDate = date.toLocaleString('en-us', {day: 'numeric'});
-        var numberYear = date.toLocaleString("en-US", {year: "numeric"})
         html += "<div>"
-        html += '<h1>' + Day + ' ' + Month + ' ' + numberDate + ' ' + numberYear + '</h1>';
+        html += '<h1>' + Day + ' ' + Month + ' ' + numberDate + '</h1>';
         html += '<p>High / Low</p>';
-        html += '<p>' + dailyForecast.temp.max.toFixed(1) + 'F / ';
-        html += +dailyForecast.temp.min.toFixed(1) + ' F</p>';
+        html += '<p>' + Math.round(dailyForecast.temp.max) + 'F / ';
+        html += +Math.round(dailyForecast.temp.min) + ' F</p>';
         html += "</div>"
         $('#weatherforecast').append(html);
     }
