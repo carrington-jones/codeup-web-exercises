@@ -102,7 +102,9 @@ $("#btn").click(function (e) {
 })
 
 
-// var hersheyCoordinates = [40.2859, -76.6502]
+var hersheyCoordinates = {lat: 40.2859,lng: -76.6502}
+var hersheyCoordinates2 = [40.2859, -76.6502]
+
 //Initial Starting point. Hershey, PA
 var lat = 40.2859
 var lng = -76.6502
@@ -222,6 +224,23 @@ function popularDestinationMunich() {
         popup.setHTML("<h5>" + "Munich, Germany" + "</h5>" + "<br>" + "<p>" + "Munich is further north than any major US city." + "</p>");
         map.flyTo({center: munichCoordinates3});
         popularDestination(munichCoordinates2);
+    });
+}
+
+function flyHome() {
+    var popularDestination1 = reverseGeocode(hersheyCoordinates, MAPBOX_ACCESS_TOKEN).then(function (results) {
+        $("#weatherTitle").html("Weather Forecast for " + results.features[2].place_name)
+        console.log(results)
+    });
+    geocode("Hershey", MAPBOX_ACCESS_TOKEN).then(function (info) {
+        var hersheyCoordinates3 = {
+            lng: info[0],
+            lat: info[1]
+        }
+        marker.setLngLat(hersheyCoordinates);
+        popup.setHTML("<h5>" + "Munich, Germany" + "</h5>" + "<br>" + "<p>" + "Munich is further north than any major US city." + "</p>");
+        map.flyTo({center: hersheyCoordinates3});
+        popularDestination(hersheyCoordinates2);
     });
 }
 
