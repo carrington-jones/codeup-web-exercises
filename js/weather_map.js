@@ -177,7 +177,7 @@ function popularDestination(coordinates2) {
         $('#weatherForecast').html(html);
     });
 }
-
+//function for flying to Paris and updated map, marker, pop, and weather
 function popularDestinationParis() {
     var popularDestination1 = reverseGeocode(parisCoordinates, MAPBOX_ACCESS_TOKEN).then(function (results) {
         $("#weatherTitle").html("Weather Forecast for " + results.features[2].place_name)
@@ -194,6 +194,7 @@ function popularDestinationParis() {
         popularDestination(parisCoordinates2);
     });
 }
+//function for flying to Tokyo and updated map, marker, pop, and weather
 function popularDestinationTokyo() {
     var popularDestination1 = reverseGeocode(tokyoCoordinates, MAPBOX_ACCESS_TOKEN).then(function (results) {
         $("#weatherTitle").html("Weather Forecast for " + results.features[2].place_name)
@@ -210,6 +211,7 @@ function popularDestinationTokyo() {
         popularDestination(tokyoCoordinates2);
     });
 }
+//function for flying to Munich and updated map, marker, pop, and weather
 function popularDestinationMunich() {
     var popularDestination1 = reverseGeocode(munichCoordinates, MAPBOX_ACCESS_TOKEN).then(function (results) {
         $("#weatherTitle").html("Weather Forecast for " + results.features[2].place_name)
@@ -226,7 +228,7 @@ function popularDestinationMunich() {
         popularDestination(munichCoordinates2);
     });
 }
-
+//This function will fly to home aka the initial spot of Hershey, PA
 function flyHome() {
     var popularDestination1 = reverseGeocode(hersheyCoordinates, MAPBOX_ACCESS_TOKEN).then(function (results) {
         $("#weatherTitle").html("Weather Forecast for " + results.features[2].place_name)
@@ -243,40 +245,3 @@ function flyHome() {
         popularDestination(hersheyCoordinates2);
     });
 }
-
-
-// var paris = document.getElementById('#paris')
-// paris.addEventListener('click', function(e){
-//     popularDestination(parisCoordinates)
-// })
-
-
-// var today = resp.daily[0]; //Current Date formula
-// var todayDate = new Date(today.dt * 1000);
-// console.log(todayDate);
-// $("#todaysDate").html(todayDate)
-//
-// var weatherForecast1 = resp.daily[0]; //Today forecast formula
-// var weatherForecast2 = weatherForecast1.weather[0].description;
-// console.log(weatherForecast2)
-// $("#weatherForecast1").html(weatherForecast2)
-//
-// var dailyHigh1 = resp.daily[0] //Today Temp High Formula
-// var dailyHigh2 = Math.round(dailyHigh1.temp.max)
-// console.log(dailyHigh2)
-// $("#todaysHigh").html(dailyHigh2 + " degrees")
-//
-// var dailyLow1 = resp.daily[0] //Today Temp Low Formula
-// var dailyLow2 = Math.round(dailyLow1.temp.min)
-// console.log(dailyLow2)
-// $("#todaysLow").html(dailyLow2 + " degrees")
-
-
-// $.get("http://api.openweathermap.org/data/2.5/onecall", {
-//     APPID: WEATHER_MAP_TOKEN,
-//     lat: 29.423017,
-//     lon: -98.48527,
-//     units: "imperial"
-// }).done(function(data) {
-//     console.log(data);
-// });
