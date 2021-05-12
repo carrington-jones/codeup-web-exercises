@@ -1,6 +1,16 @@
 #navbar{
-    background-color: #ffff94;
+    background-color: #ffca94;
 }
 #footer{
-    background-color: #ffff94;
+    background-color: #ffca94;
+}
+#copyright{
+    background-color: #94ffc9;
+}
+.card{
+    font-family: 'Roboto', sans-serif;
+}
+#weatherTitle{
+    font-family: 'Montserrat', sans-serif;
+    font-size: xxx-large;
 }

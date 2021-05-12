@@ -47,7 +47,7 @@ marker.on('dragend', function () {
             var Month = date.toLocaleString('en-us', {month: 'long'});
             var numberDate = date.toLocaleString('en-us', {day: 'numeric'});
             html += "<div class='card text-center col-2 m-3 d-flex shadow-lg p-3 mb-5 bg-white rounded'>"
-            html += '<h2>' + Day + '</h2>' + '<br> ' + '<h4>' + Month + ' ' + numberDate + '</h4>';
+            html += '<h2>' + '<strong>' + Day + '</strong>' + '</h2>' + '<br> ' + '<h4>' + Month + ' ' + numberDate + '</h4>';
             html += '<p>' + "<img src=http://openweathermap.org/img/w/" + icons + ".png" + ">" + '</p>' //Icons from OpenWeather API
             html += '<p>' + description + '</p>';
             html += '<p>High / Low</p>';
@@ -87,7 +87,7 @@ $("#btn").click(function (e) {
                 var Month = date.toLocaleString('en-us', {month: 'long'});
                 var numberDate = date.toLocaleString('en-us', {day: 'numeric'});
                 html += "<div class='card text-center col-2 m-3 d-flex shadow-lg p-3 mb-5 bg-white rounded'>"
-                html += '<h2>' + Day + '</h2>' + '<br> ' + '<h4>' + Month + ' ' + numberDate + '</h4>';
+                html += '<h2>' + '<strong>' + Day + '</strong>' + '</h2>' + '<br> ' + '<h4>' + Month + ' ' + numberDate + '</h4>';
                 html += '<p>' + "<img src=http://openweathermap.org/img/w/" + icons + ".png" + ">" + '</p>' //Icons from OpenWeather API
                 html += '<p>' + description + '</p>';
                 html += '<p>High / Low</p>';
@@ -132,7 +132,7 @@ function renderWeather(resp) {
         var Month = date.toLocaleString('en-us', {month: 'long'});
         var numberDate = date.toLocaleString('en-us', {day: 'numeric'});
         html += "<div class='card text-center col-2 m-3 d-flex shadow-lg p-3 mb-5 bg-white rounded'>"
-        html += '<h2>' + Day + '</h2>' + '<br> ' + '<h4>' + Month + ' ' + numberDate + '</h4>';
+        html += '<h2>' + '<strong>' + Day + '</strong>' + '</h2>' + '<br> ' + '<h4>' + Month + ' ' + numberDate + '</h4>';
         html += '<p>' + "<img src=http://openweathermap.org/img/w/" + icons + ".png" + ">" + '</p>' //Icons from OpenWeather API
         html += '<p>' + description + '</p>';
         html += '<p>High / Low</p>';
@@ -165,7 +165,7 @@ function popularDestination(coordinates2) {
             var Month = date.toLocaleString('en-us', {month: 'long'});
             var numberDate = date.toLocaleString('en-us', {day: 'numeric'});
             html += "<div class='card text-center col-2 m-3 d-flex shadow-lg p-3 mb-5 bg-white rounded'>"
-            html += '<h2>' + Day + '</h2>' + '<br> ' + '<h4>' + Month + ' ' + numberDate + '</h4>';
+            html += '<h2>' + '<strong>' + Day + '</strong>' + '</h2>' + '<br> ' + '<h4>' + Month + ' ' + numberDate + '</h4>';
             html += '<p>' + "<img src=http://openweathermap.org/img/w/" + icons + ".png" + ">" + '</p>' //Icons from OpenWeather API
             html += '<p>' + description + '</p>';
             html += '<p>High / Low</p>';
@@ -179,7 +179,7 @@ function popularDestination(coordinates2) {
 }
 //function for flying to Paris and updated map, marker, pop, and weather
 function popularDestinationParis() {
-    var popularDestination1 = reverseGeocode(parisCoordinates, MAPBOX_ACCESS_TOKEN).then(function (results) {
+    reverseGeocode(parisCoordinates, MAPBOX_ACCESS_TOKEN).then(function (results) {
         $("#weatherTitle").html("Weather Forecast for " + results.features[2].place_name)
         console.log(results)
     });
@@ -196,7 +196,7 @@ function popularDestinationParis() {
 }
 //function for flying to Tokyo and updated map, marker, pop, and weather
 function popularDestinationTokyo() {
-    var popularDestination1 = reverseGeocode(tokyoCoordinates, MAPBOX_ACCESS_TOKEN).then(function (results) {
+    reverseGeocode(tokyoCoordinates, MAPBOX_ACCESS_TOKEN).then(function (results) {
         $("#weatherTitle").html("Weather Forecast for " + results.features[2].place_name)
         console.log(results)
     });
@@ -213,7 +213,7 @@ function popularDestinationTokyo() {
 }
 //function for flying to Munich and updated map, marker, pop, and weather
 function popularDestinationMunich() {
-    var popularDestination1 = reverseGeocode(munichCoordinates, MAPBOX_ACCESS_TOKEN).then(function (results) {
+   reverseGeocode(munichCoordinates, MAPBOX_ACCESS_TOKEN).then(function (results) {
         $("#weatherTitle").html("Weather Forecast for " + results.features[2].place_name)
         console.log(results)
     });
@@ -230,7 +230,7 @@ function popularDestinationMunich() {
 }
 //This function will fly to home aka the initial spot of Hershey, PA
 function flyHome() {
-    var popularDestination1 = reverseGeocode(hersheyCoordinates, MAPBOX_ACCESS_TOKEN).then(function (results) {
+    reverseGeocode(hersheyCoordinates, MAPBOX_ACCESS_TOKEN).then(function (results) {
         $("#weatherTitle").html("Weather Forecast for " + results.features[2].place_name)
         console.log(results)
     });
@@ -240,7 +240,7 @@ function flyHome() {
             lat: info[1]
         }
         marker.setLngLat(hersheyCoordinates);
-        popup.setHTML("<h5>" + "Munich, Germany" + "</h5>" + "<br>" + "<p>" + "Munich is further north than any major US city." + "</p>");
+        popup.setHTML("<h5>" + "Hershey, PA" + "</h5>" + "<br>" + "<p>" + "Corporate Chocolate" + "</p>");
         map.flyTo({center: hersheyCoordinates3});
         popularDestination(hersheyCoordinates2);
     });
