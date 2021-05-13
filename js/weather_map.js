@@ -1,3 +1,16 @@
+//Table of Contents
+
+//MapBox starts line 9
+//Map Controls line 19
+//Marker starts line 22
+//Popup starts line 30
+//Reverse Geocode that runs when marker is dropped line 38
+//Code that updates weather cards and data based on where marker is dropped 46
+//Search button click code line 73
+//Initial Weather on page load line 128
+//This logs and displays entire weather object line 137
+//Start of "Popular Destinations" functionality including building cards, click events, and geo coding line 161
+
 //MapBox
 
 //MAP//
@@ -102,7 +115,7 @@ $("#btn").click(function (e) {
 })
 
 
-var hersheyCoordinates = {lat: 40.2859,lng: -76.6502}
+var hersheyCoordinates = {lat: 40.2859, lng: -76.6502}
 var hersheyCoordinates2 = [40.2859, -76.6502]
 
 //Initial Starting point. Hershey, PA
@@ -177,6 +190,7 @@ function popularDestination(coordinates2) {
         $('#weatherForecast').html(html);
     });
 }
+
 //function for flying to Paris and updated map, marker, pop, and weather
 function popularDestinationParis() {
     reverseGeocode(parisCoordinates, MAPBOX_ACCESS_TOKEN).then(function (results) {
@@ -194,6 +208,7 @@ function popularDestinationParis() {
         popularDestination(parisCoordinates2);
     });
 }
+
 //function for flying to Tokyo and updated map, marker, pop, and weather
 function popularDestinationTokyo() {
     reverseGeocode(tokyoCoordinates, MAPBOX_ACCESS_TOKEN).then(function (results) {
@@ -211,9 +226,10 @@ function popularDestinationTokyo() {
         popularDestination(tokyoCoordinates2);
     });
 }
+
 //function for flying to Munich and updated map, marker, pop, and weather
 function popularDestinationMunich() {
-   reverseGeocode(munichCoordinates, MAPBOX_ACCESS_TOKEN).then(function (results) {
+    reverseGeocode(munichCoordinates, MAPBOX_ACCESS_TOKEN).then(function (results) {
         $("#weatherTitle").html("Weather Forecast for " + results.features[2].place_name)
         console.log(results)
     });
@@ -228,6 +244,7 @@ function popularDestinationMunich() {
         popularDestination(munichCoordinates2);
     });
 }
+
 //This function will fly to home aka the initial spot of Hershey, PA
 function flyHome() {
     reverseGeocode(hersheyCoordinates, MAPBOX_ACCESS_TOKEN).then(function (results) {
@@ -245,19 +262,20 @@ function flyHome() {
         popularDestination(hersheyCoordinates2);
     });
 }
+
 //Click event for Home Link. This could have been done with much less code in HTML, but wanted to practice jquery and click events.
-$("#flyhome").on("click", function(){
-flyHome()
+$("#flyhome").on("click", function () {
+    flyHome()
 });
 //Click even for flying to Paris with updated cards
-$("#paris").on("click", function(){
+$("#paris").on("click", function () {
     popularDestinationParis()
 });
 //Click even for flying to Tokyo with updated cards
-$("#tokyo").on("click", function(){
+$("#tokyo").on("click", function () {
     popularDestinationTokyo()
 });
 //Click even for flying to Munich with updated cards
-$("#munich").on("click", function(){
+$("#munich").on("click", function () {
     popularDestinationMunich()
 });
