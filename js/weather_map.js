@@ -245,3 +245,19 @@ function flyHome() {
         popularDestination(hersheyCoordinates2);
     });
 }
+//Click event for Home Link. This could have been done with much less code in HTML, but wanted to practice jquery and click events.
+$("#flyhome").on("click", function(){
+flyHome()
+});
+//Click even for flying to Paris with updated cards
+$("#paris").on("click", function(){
+    popularDestinationParis()
+});
+//Click even for flying to Tokyo with updated cards
+$("#tokyo").on("click", function(){
+    popularDestinationTokyo()
+});
+//Click even for flying to Munich with updated cards
+$("#munich").on("click", function(){
+    popularDestinationMunich()
+});
