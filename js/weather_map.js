@@ -267,11 +267,11 @@ function flyHome() {
 $("#flyhome").on("click", function () {
     flyHome()
 });
-//Click even for flying to Paris with updated cards
+//Click event for flying to Paris with updated cards
 $("#paris").on("click", function () {
     popularDestinationParis()
 });
-//Click even for flying to Tokyo with updated cards
+//Click event for flying to Tokyo with updated cards
 $("#tokyo").on("click", function () {
     popularDestinationTokyo()
 });
