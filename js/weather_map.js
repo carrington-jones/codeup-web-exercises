@@ -50,26 +50,7 @@ marker.on('dragend', function () {
     // This code updates weather cards and data based on where marker is dropped.
     $.ajax("https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + markerLngLat.lat + "&lon=" + markerLngLat.lng + "&exclude=current,hourly,minutely&appid=" + WEATHER_MAP_TOKEN).done(function (markerData) {
         console.log(markerData);//This logs entire weather object
-        var html = "";
-        for (var i = 0; i < 5; i++) {
-            var dailyForecast = markerData.daily[i];
-            var icons = dailyForecast.weather[0].icon
-            var description = dailyForecast.weather[0].main
-            var date = new Date(dailyForecast.dt * 1000);
-            var Day = date.toLocaleString('en-us', {weekday: 'long'});
-            var Month = date.toLocaleString('en-us', {month: 'long'});
-            var numberDate = date.toLocaleString('en-us', {day: 'numeric'});
-            html += "<div class='card text-center col-2 m-3 d-flex shadow-lg p-3 mb-5 bg-white rounded'>"
-            html += '<h2>' + '<strong>' + Day + '</strong>' + '</h2>' + '<br> ' + '<h4>' + Month + ' ' + numberDate + '</h4>';
-            html += '<p>' + "<img src=http://openweathermap.org/img/w/" + icons + ".png" + ">" + '</p>' //Icons from OpenWeather API
-            html += '<p>' + description + '</p>';
-            html += '<p>High / Low</p>';
-            html += '<p>' + Math.round(dailyForecast.temp.max) + 'F / ';
-            html += Math.round(dailyForecast.temp.min) + ' F</p>';
-            html += '<p>' + 'Wind Speed - ' + Math.round(dailyForecast.wind_speed) + ' MPH' + '</p>';
-            html += "</div>"
-        }
-        $('#weatherForecast').html(html);
+        renderWeather(markerData)
     });
 })
 
@@ -90,26 +71,7 @@ $("#btn").click(function (e) {
         // THIS CHANGES WEATHER BASED ON USER INPUT
         $.ajax("https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + info[1] + "&lon=" + info[0] + "&exclude=current,hourly,minutely&appid=" + WEATHER_MAP_TOKEN).done(function (data) {
             console.log(data);//This logs entire weather object
-            var html = "";
-            for (var i = 0; i < 5; i++) {
-                var dailyForecast = data.daily[i];
-                var icons = dailyForecast.weather[0].icon
-                var description = dailyForecast.weather[0].main
-                var date = new Date(dailyForecast.dt * 1000);
-                var Day = date.toLocaleString('en-us', {weekday: 'long'});
-                var Month = date.toLocaleString('en-us', {month: 'long'});
-                var numberDate = date.toLocaleString('en-us', {day: 'numeric'});
-                html += "<div class='card text-center col-2 m-3 d-flex shadow-lg p-3 mb-5 bg-white rounded'>"
-                html += '<h2>' + '<strong>' + Day + '</strong>' + '</h2>' + '<br> ' + '<h4>' + Month + ' ' + numberDate + '</h4>';
-                html += '<p>' + "<img src=http://openweathermap.org/img/w/" + icons + ".png" + ">" + '</p>' //Icons from OpenWeather API
-                html += '<p>' + description + '</p>';
-                html += '<p>High / Low</p>';
-                html += '<p>' + Math.round(dailyForecast.temp.max) + 'F / ';
-                html += Math.round(dailyForecast.temp.min) + ' F</p>';
-                html += '<p>' + 'Wind Speed - ' + Math.round(dailyForecast.wind_speed) + ' MPH' + '</p>';
-                html += "</div>"
-            }
-            $('#weatherForecast').html(html);
+            renderWeather(data)
         });
     });
 })
@@ -168,26 +130,7 @@ var munichCoordinates2 = [48.1351, 11.5820]
 function popularDestination(coordinates2) {
     $.ajax("https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + coordinates2[0] + "&lon=" + coordinates2[1] + "&exclude=current,hourly,minutely&appid=" + WEATHER_MAP_TOKEN).done(function (data1) {
         // console.log(data1);//This logs entire weather object
-        var html = "";
-        for (var i = 0; i < 5; i++) {
-            var dailyForecast = data1.daily[i];
-            var icons = dailyForecast.weather[0].icon
-            var description = dailyForecast.weather[0].main
-            var date = new Date(dailyForecast.dt * 1000);
-            var Day = date.toLocaleString('en-us', {weekday: 'long'});
-            var Month = date.toLocaleString('en-us', {month: 'long'});
-            var numberDate = date.toLocaleString('en-us', {day: 'numeric'});
-            html += "<div class='card text-center col-2 m-3 d-flex shadow-lg p-3 mb-5 bg-white rounded'>"
-            html += '<h2>' + '<strong>' + Day + '</strong>' + '</h2>' + '<br> ' + '<h4>' + Month + ' ' + numberDate + '</h4>';
-            html += '<p>' + "<img src=http://openweathermap.org/img/w/" + icons + ".png" + ">" + '</p>' //Icons from OpenWeather API
-            html += '<p>' + description + '</p>';
-            html += '<p>High / Low</p>';
-            html += '<p>' + Math.round(dailyForecast.temp.max) + 'F / ';
-            html += Math.round(dailyForecast.temp.min) + ' F</p>';
-            html += '<p>' + 'Wind Speed - ' + Math.round(dailyForecast.wind_speed) + ' MPH' + '</p>';
-            html += "</div>"
-        }
-        $('#weatherForecast').html(html);
+        renderWeather(data1)
     });
 }
 
