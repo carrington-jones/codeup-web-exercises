@@ -1,15 +1,5 @@
 //Table of Contents
 
-//MapBox starts line 9
-//Map Controls line 19
-//Marker starts line 22
-//Popup starts line 30
-//Reverse Geocode that runs when marker is dropped line 38
-//Code that updates weather cards and data based on where marker is dropped 46
-//Search button click code line 73
-//Initial Weather on page load line 128
-//This logs and displays entire weather object line 137
-//Start of "Popular Destinations" functionality including building cards, click events, and geo coding line 161
 
 //MapBox
 
@@ -76,10 +66,6 @@ $("#btn").click(function (e) {
     });
 })
 
-
-var hersheyCoordinates = {lat: 40.2859, lng: -76.6502}
-var hersheyCoordinates2 = [40.2859, -76.6502]
-
 //Initial Starting point. Hershey, PA
 var lat = 40.2859
 var lng = -76.6502
@@ -126,6 +112,8 @@ var tokyoCoordinates = {lat: 35.6762, lng: 139.6503}
 var tokyoCoordinates2 = [35.6762, 139.6503]
 var munichCoordinates = {lat: 48.1351, lng: 11.5820}
 var munichCoordinates2 = [48.1351, 11.5820]
+var hersheyCoordinates = {lat: 40.2859, lng: -76.6502}
+var hersheyCoordinates2 = [40.2859, -76.6502]
 
 function popularDestination(coordinates2) {
     $.ajax("https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + coordinates2[0] + "&lon=" + coordinates2[1] + "&exclude=current,hourly,minutely&appid=" + WEATHER_MAP_TOKEN).done(function (data1) {
