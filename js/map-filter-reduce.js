@@ -64,21 +64,37 @@ let totalYearsExperience = users.reduce((total, user) => total + user.yearsOfExp
 console.log(totalYearsExperience);
 
 //Use .reduce to get the longest email from the list of users.
-    let useremails = users.map(function(user) {
-        user = user.email
-        return user
-    });
+let useremails = users.map((user) => user = user.email);
 
-    let longestEmail = useremails.reduce((longest, currentword) => {
-        if (currentword.length > longest.length) {
-            return currentword;
-        } else {
-            return longest
-        }
-    }, "");
+let longestEmail = useremails.reduce((longest, currentword) => {
+    if (currentword.length > longest.length) {
+        return currentword;
+    } else {
+        return longest
+    }
+}, "");
 
-    console.log(longestEmail)
+console.log(longestEmail)
 
 //Use .reduce to get the list of user's names in a single string.
-let usersnames = users.reduce((acc, user) => acc + user.name, "");
-    console.log(usersnames)
+let usersnames = users.reduce((accumulator, user) => accumulator + user.name, "");
+console.log(usersnames)
+
+//Use .reduce to get the unique list of languages from the list of users.
+let userLanguages = users.map(function (user) {
+    user = user.languages
+    return user
+});
+var mergedLanguages = [].concat.apply([], userLanguages)
+console.log(mergedLanguages)
+
+let uniqueLanguages = mergedLanguages.reduce(function (total, language) {
+    if (!total[language]) {
+        total[language] = 1;
+    } else {
+        total[language] = total[language] + 1;
+    }
+    return total
+}, {})
+
+console.log(uniqueLanguages)
