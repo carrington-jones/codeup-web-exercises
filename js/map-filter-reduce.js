@@ -77,8 +77,16 @@ let longestEmail = useremails.reduce((longest, currentword) => {
 console.log(longestEmail)
 
 //Use .reduce to get the list of user's names in a single string.
-let usersnames = users.reduce((accumulator, user) => accumulator + user.name, "");
-console.log(usersnames)
+let usersNames = users.reduce((accumulator, user, index, arr) => {
+    if (index === arr.length -1) {
+        accumulator += `and ${user.name}.`; //Takes care of last index in the array
+    } else {
+        accumulator += `${user.name}, `;
+    }
+    return accumulator;
+},'Users names are: ');
+
+console.log(usersNames)
 
 //Use .reduce to get the unique list of languages from the list of users.
 let userLanguages = users.map(function (user) {
