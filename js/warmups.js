@@ -19,8 +19,19 @@
 // console.log(fizzbuzz(30))
 
 //Seven-"Write a function in JavaScript that returns the number 7" 05.25.21
-function seven () {
-    return 7
-}
-const seven2 = () => 7;
+// function seven () {
+//     return 7
+// }
+// const seven2 = () => 7;
 
+function five (number){
+    if(typeof number === "number"){
+        return number * 5
+    } else{
+        return 0
+    }
+}
+console.log(five(5))
+console.log(five(25))
+console.log(five("banana"))
+console.log(five(true))
