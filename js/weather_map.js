@@ -25,7 +25,7 @@ var marker = new mapboxgl.Marker({
 //Popup//
 var popup = new mapboxgl.Popup()
     .setLngLat(marker.getLngLat())
-    .setHTML("<h3>Hello World!</h3>")
+    .setHTML("<h6>Hershey, PA</h6> <p>Fun Fact: Hershey produce over 1 billion pounds of chocolate per year!</p>")
     .setMaxWidth("300px")
 marker.setPopup(popup);
 
@@ -112,8 +112,8 @@ var tokyoCoordinates = {lat: 35.6762, lng: 139.6503}
 var tokyoCoordinates2 = [35.6762, 139.6503]
 var munichCoordinates = {lat: 48.1351, lng: 11.5820}
 var munichCoordinates2 = [48.1351, 11.5820]
-var hersheyCoordinates = {lat: 40.2859, lng: -76.6502}
-var hersheyCoordinates2 = [40.2859, -76.6502]
+var SanAntonioCoordinates = {lat: 29.4241, lng: -98.4936}
+var SanAntonioCoordinates2 = [29.4241, -98.4936]
 
 function popularDestination(coordinates2) {
     $.ajax("https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + coordinates2[0] + "&lon=" + coordinates2[1] + "&exclude=current,hourly,minutely&appid=" + WEATHER_MAP_TOKEN).done(function (data1) {
@@ -178,19 +178,19 @@ function popularDestinationMunich() {
 
 //This function will fly to home aka the initial spot of Hershey, PA
 function flyHome() {
-    reverseGeocode(hersheyCoordinates, MAPBOX_ACCESS_TOKEN).then(function (results) {
+    reverseGeocode(SanAntonioCoordinates, MAPBOX_ACCESS_TOKEN).then(function (results) {
         $("#weatherTitle").html("Weather Forecast for " + results.features[2].place_name)
         console.log(results)
     });
-    geocode("Hershey", MAPBOX_ACCESS_TOKEN).then(function (info) {
-        var hersheyCoordinates3 = {
+    geocode("San Antonio", MAPBOX_ACCESS_TOKEN).then(function (info) {
+        var SanAntonioCoordinates3 = {
             lng: info[0],
             lat: info[1]
         }
-        marker.setLngLat(hersheyCoordinates);
-        popup.setHTML("<h5>" + "Hershey, PA" + "</h5>" + "<br>" + "<p>" + "Corporate Chocolate" + "</p>");
-        map.flyTo({center: hersheyCoordinates3});
-        popularDestination(hersheyCoordinates2);
+        marker.setLngLat(SanAntonioCoordinates);
+        popup.setHTML("<h6>" + "San Antonio, TX" + "</h6>" + "<br>" + "<p>" + "Home of the Alamo" + "</p>");
+        map.flyTo({center: SanAntonioCoordinates3});
+        popularDestination(SanAntonioCoordinates2);
     });
 }
 
